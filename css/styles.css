@@ -1,0 +1,780 @@
+/* ---------- Global Styles ---------- */
+/* Define CSS variables for theme colors and common values */
+:root {
+  --primary: #667eea;
+  --secondary: #764ba2;
+  --light: #f9f9f9;
+  --dark: #222;
+  --text: #333;
+  --radius: 10px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, sans-serif;
+  line-height: 1.7;
+  background: var(--light);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ---------- Header & Navigation ---------- */
+/* Sticky header with gradient background */
+header {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: var(--shadow);
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+header h1:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation styles */
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 0.8rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ---------- Section Styles ---------- */
+/* Animate sections in on scroll */
+section {
+  padding: 4rem 2rem;
+  max-width: 1100px;
+  margin: auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+section.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section headings with underline effect */
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  margin: 1rem auto 0;
+  border-radius: 5px;
+}
+
+/* ---------- About Section ---------- */
+/* Grid layout for profile image and about text */
+.about-content {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.profile-img {
+  width: 100%;
+  border-radius: 50%;
+  border: 5px solid var(--primary);
+  box-shadow: var(--shadow);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 3rem;
+  aspect-ratio: 1;
+  transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+
+.tagline {
+  font-style: italic;
+  color: var(--secondary);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+/* ---------- Education Section ---------- */
+/* Card layout for education entries */
+.education-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.education-card {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  transition: transform 0.3s ease;
+}
+
+.education-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.education-icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.education-info h3 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.institution {
+  color: var(--secondary);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.graduation {
+  color: #666;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.coursework h4 {
+  color: var(--text);
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.courses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.course-tag {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  transition: transform 0.2s ease;
+}
+
+.course-tag:hover {
+  transform: scale(1.05);
+}
+
+/* ---------- Skills Section ---------- */
+/* Grid layout for skills categories */
+.skills-container {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.skills-category h3 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.skills-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+/* Skill item with progress bar */
+.skill-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: white;
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+}
+
+.skill-icon {
+  font-size: 2rem;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 8px;
+  background: #eee;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0.3rem 0;
+}
+
+.skill-progress {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 5px;
+  transition: width 1.5s ease-in-out;
+}
+
+.skill-progress.animate {
+  width: var(--target-width);
+}
+
+.skill-percentage {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* Soft skills tags */
+.soft-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.soft-skill-tag {
+  background: var(--primary);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  transition: transform 0.2s ease;
+}
+
+.soft-skill-tag:hover {
+  transform: scale(1.05);
+}
+
+/* ---------- Projects Section ---------- */
+/* Responsive grid for project cards */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.project-content {
+  padding: 1.2rem;
+}
+
+.project-tech {
+  margin-top: 1rem;
+}
+
+.tech-tag {
+  display: inline-block;
+  background: var(--secondary);
+  color: white;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius);
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.3rem;
+  transition: background 0.2s ease;
+}
+
+.tech-tag:hover {
+  background: var(--primary);
+}
+
+/* ---------- Achievements ---------- */
+.achievements-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.achievement-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.achievement-icon {
+  font-size: 2rem;
+}
+
+.achievement-card span {
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* ---------- Hobbies ---------- */
+.hobbies-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.hobby-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.hobby-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hobby-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* ---------- Contact ---------- */
+/* Contact info and form styles */
+.contact-content {
+  max-width: 600px;
+  margin: auto;
+}
+
+.contact-content ul {
+  list-style: none;
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.contact-content li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  transition: background 0.2s ease;
+}
+
+.contact-content li:last-child {
+  border-bottom: none;
+}
+
+.contact-content li:hover {
+  background: #f8f9fa;
+  border-radius: 5px;
+}
+
+.contact-content a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-content a:hover {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+
+/* Contact form styles */
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-top: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.contact-form:hover {
+    transform: translateY(-5px);
+}
+
+.contact-form h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+    font-size: 1.4rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.submit-btn:active {
+    transform: translateY(-1px);
+}
+
+/* ---------- Footer ---------- */
+/* Simple centered footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--dark);
+  color: #ccc;
+}
+
+/* ---------- Theme Switch ---------- */
+/* Toggle switch for dark/light mode */
+.theme-switch {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  z-index: 1001;
+  user-select: none;
+}
+
+.theme-switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch {
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  background: linear-gradient(135deg, #87ceeb, #f1c40f);
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.4s ease;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
+
+.slider {
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #f1c40f;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+  transition: transform 0.35s cubic-bezier(.2,.8,.2,1), background 0.35s ease, box-shadow 0.35s ease;
+  overflow: visible;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: rgba(255,255,255,0.35);
+  transition: transform 0.35s ease;
+  pointer-events: none;
+}
+
+.slider::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: transparent;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.35s ease;
+  pointer-events: none;
+}
+
+.theme-switch input:checked + .switch {
+  background: linear-gradient(135deg, #2c3e50, #000);
+}
+
+.theme-switch input:checked + .switch .slider {
+  transform: translateX(30px);
+  background: #2c3e50;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+}
+
+.theme-switch input:checked + .switch .slider::after {
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  left: 9px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+}
+
+.theme-switch input:not(:checked) + .switch .slider::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.theme-switch input:focus + .switch {
+  box-shadow: 0 0 0 4px rgba(102,126,234,0.18);
+}
+
+/* ---------- Dark Mode ---------- */
+/* Dark theme overrides for backgrounds and text */
+body.dark {
+  background: #121212;
+  color: #eaeaea;
+}
+
+body.dark header {
+  background: linear-gradient(135deg, #1f1f1f, #333);
+}
+
+body.dark .project-card,
+body.dark .hobby-card,
+body.dark .achievement-card,
+body.dark .skill-item,
+body.dark .contact-content ul,
+body.dark .education-card {
+  background: #222;
+  color: #eee;
+}
+
+body.dark h2 {
+  color: #eaeaea;
+}
+
+body.dark .skill-percentage {
+  color: #ccc;
+}
+
+body.dark .contact-content li:hover {
+  background: #333;
+}
+
+body.dark .contact-form {
+    background: #222;
+    color: #eee;
+}
+
+body.dark .form-group label {
+    color: #eaeaea;
+}
+
+body.dark .form-group input,
+body.dark .form-group textarea {
+    background: #333;
+    border-color: #555;
+    color: #eaeaea;
+}
+
+body.dark .form-group input:focus,
+body.dark .form-group textarea:focus {
+    border-color: var(--primary);
+    background: #2a2a2a;
+}
+
+body.dark .contact-form h3 {
+    color: var(--primary);
+}
+
+/* ---------- Animations ---------- */
+/* Fade in animation for sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide in animation for form messages */
+.form-message {
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Responsive ---------- */
+/* Responsive adjustments for tablets */
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  nav ul {
+    justify-content: center;
+  }
+  
+  .theme-switch {
+    top: 10px;
+    right: 12px;
+    transform: scale(0.95);
+  }
+  
+  section {
+    padding: 2rem 1rem;
+  }
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 480px) {
+  header {
+    padding: 1rem;
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+  }
+  
+  nav ul {
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  nav a {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  .project-card,
+  .hobby-card,
+  .achievement-card {
+    margin-bottom: 1rem;
+  }
+}
